@@ -8,10 +8,12 @@ import { NewRecipe } from './Pages/NewRecipe';
 import { Recipe } from './Pages/Recipe';
 import { Search } from './Pages/Search';
 import { Error } from './Pages/Error';
-
+import { NavBar } from './Components/NavBar';
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div className="App">
+      <NavBar/>
       <Routes>
         <Route path='/' element= {<Home/>} /> 
         <Route path='/about' element= {<About/>} /> 
