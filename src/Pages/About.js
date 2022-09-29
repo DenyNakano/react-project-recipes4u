@@ -2,6 +2,10 @@ import React from 'react'
 
 export const About = () => {
   return (
-    <div>About</div>
+    <div>
+      <div>imagem</div>
+      <div>texto</div>
+    </div>
   )
 }
+
