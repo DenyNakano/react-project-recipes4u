@@ -1,0 +1,7 @@
+.content-two{
+    display: flex;
+    justify-content: center;
+}
+.card{
+    width: 90%;
+}
