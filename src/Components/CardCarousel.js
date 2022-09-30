@@ -15,7 +15,7 @@ export const CardCarousel = () => {
     },1000)
   },[word])
   return (
-    <div className="content-two">
+    <div className="content">
         <Card className="card">
             <CardBody>
                 <CardTitle tag="h1" >

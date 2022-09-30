@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Card, CardBody, CardImg, CardTitle } from 'reactstrap'
+import './Destaques.css'
 
 export const Destaques = () => {
     const [recipes, setRecipes] = useState([])
@@ -19,15 +21,20 @@ export const Destaques = () => {
 
     }
     return (
-    <div>
-        <div>
+    <div className='content' >
+    <Card>
+        <CardBody>
+           <CardTitle tag='h1' >
             Destaques
-        </div>
+           </CardTitle>
+           <div style={{display:'flex', flexWrap:'wrap',justifyContent:'center'}} >
         {recipes.map(recipe => 
-            <div>
-                <img src={recipe.image} alt={recipe.image}/>
-            </div>
+                <div style={{backgroundImage: `url(${recipe.image})`}} className='image-recipe'></div>
+            
             )}
+            </div>
+        </CardBody>
+    </Card>
     </div>
   )
 }
