@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Card, CardBody, CardImg, CardTitle } from 'reactstrap'
 import './Destaques.css'
 
@@ -29,8 +30,7 @@ export const Destaques = () => {
            </CardTitle>
            <div style={{display:'flex', flexWrap:'wrap',justifyContent:'center'}} >
         {recipes.map(recipe => 
-                <div style={{backgroundImage: `url(${recipe.image})`}} className='image-recipe'></div>
-            
+            <Link to="/recipe/:id" ><div style={{backgroundImage: `url(${recipe.image})`}} className='image-recipe'></div></Link>
             )}
             </div>
         </CardBody>
