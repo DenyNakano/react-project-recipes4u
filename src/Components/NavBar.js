@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { NavItem, Nav, NavLink } from "reactstrap";
+import { NavItem, Nav } from "reactstrap";
 import "./NavBar.css";
 import { Search } from "./Search";
 export const NavBar = () => {
