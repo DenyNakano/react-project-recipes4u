@@ -9,7 +9,7 @@ export const NavBar = () => {
       <Nav className="nav" >
         <NavItem>
           <NavLink href="/">
-            <img id="recipe-logo" src={recipeLogo} alt={recipeLogo}/>
+            image
           </NavLink>
         </NavItem>
         <div className="nav-links" >
