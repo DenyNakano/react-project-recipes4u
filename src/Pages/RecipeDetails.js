@@ -6,6 +6,7 @@ import axios from 'axios'
 export const RecipeDetails = () => {
   const {id} = useParams()
   const [recipe, setRecipe] = useState({});
+
   useEffect(() => {
     getRecipe();
   }, []);
@@ -14,6 +15,7 @@ export const RecipeDetails = () => {
       const {data} = await axios.get(
         `https://ironrest.herokuapp.com/recipes4u/${id}`
       );
+      console.log(data)
       setRecipe(data);
     } catch (error) {
       console.log(error);
@@ -22,24 +24,23 @@ export const RecipeDetails = () => {
   return (
     <div>
       <div>
-        <img src={recipe.image} alt={recipe.image}/>
+        <img src={recipe?.image} alt={recipe?.image}/>
         <p>
-          {recipe.description}
+          {recipe?.description}
         </p>
-        {/*<ul>
-          recipe.ingredients.map((ingredient, index) => 
-          
-          )</ul>*/}
-          {console.log(recipe.ingredients.map((ingredient) => {return ingredient}))}
-        
-        
-        {/*<ul>
-          {recipe.preparation.map ((step, index) => 
-          <li>
+        <ul>
+        {recipe?.ingredients?.map((ingredient,index)=>
+         <li key={index}>{ingredient}</li> 
+        )}
+      </ul>
+
+        <ul>
+          {recipe?.preparation?.map((step,index) => 
+          <li key={index}>
             {index + 1} {step}
           </li>
         )}
-          </ul>*/}
+          </ul>
           
       </div>
       
