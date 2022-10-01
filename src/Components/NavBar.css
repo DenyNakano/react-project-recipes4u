@@ -7,8 +7,16 @@
     height: 70px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: black;
 }
 .nav-links{
  display: flex;
+ width: 200px;
+ justify-content: space-around;
+}
+.links{
+    text-decoration: none;
+    color: white;
+
 }

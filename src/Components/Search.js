@@ -1,21 +1,21 @@
 import React from 'react'
-import { Button, Card, CardBody, Collapse, Input, InputGroup, InputGroupText } from 'reactstrap'
-
+import { Button, Card, CardBody, Input, InputGroup, InputGroupText } from 'reactstrap'
+import { FaSearch } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 export const Search = () => {
   return (
     <div>
-        <Collapse>
             <Card>
                 <CardBody>
                     <InputGroup>
                         <Input placeholder='search'/>
-                        <InputGroupText><Button color='primary'>
-                            
-                        </Button></InputGroupText>
+                        <InputGroupText><Link to="/search">
+                        <Button color='primary'>
+                            <FaSearch/>
+                        </Button></Link></InputGroupText>
                     </InputGroup>
                 </CardBody>
             </Card>
-        </Collapse>
     </div>
   )
 }
