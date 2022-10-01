@@ -15,7 +15,7 @@ export const RecipeDetails = () => {
       const {data} = await axios.get(
         `https://ironrest.herokuapp.com/recipes4u/${id}`
       );
-      console.log(data)
+      
       setRecipe(data);
     } catch (error) {
       console.log(error);
@@ -25,15 +25,21 @@ export const RecipeDetails = () => {
     <div>
       <div>
         <img src={recipe?.image} alt={recipe?.image}/>
+        <h1>{recipe.name}</h1>
+        <h2>Descrição</h2>
         <p>
           {recipe?.description}
         </p>
+        <h2>Ingredientes</h2>
         <ul>
         {recipe?.ingredients?.map((ingredient,index)=>
          <li key={index}>{ingredient}</li> 
         )}
-      </ul>
-
+        </ul>
+        <div>
+          {recipe?.time} {recipe?.level} {recipe?.rate}
+        </div>
+        <h2>Preparo</h2>
         <ul>
           {recipe?.preparation?.map((step,index) => 
           <li key={index}>
