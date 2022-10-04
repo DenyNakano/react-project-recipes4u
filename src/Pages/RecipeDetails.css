@@ -1,0 +1,8 @@
+.image{
+    width: 400px;
+    height: 400px;
+    background-size: 400px 450px;
+}
+li{
+    list-style-type: none;
+}
