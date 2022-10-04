@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardBody, CardTitle } from "reactstrap";
 import "./Destaques.css";
-
+import {  MdTimer } from "react-icons/md";
+import { Loading } from "./Loading";
 export const Destaques = () => {
   const [recipes, setRecipes] = useState([]);
-
   useEffect(() => {
     getRecipes();
   }, []);
@@ -20,38 +20,43 @@ export const Destaques = () => {
       console.log(error);
     }
   };
-  return (
+  return  recipes.length === 0 ?
+     <Loading/>:
     <div className="content">
       <Card>
         <CardBody>
           <CardTitle tag="h1">Destaques</CardTitle>
           <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-            }}
+          style={{display:'flex',flexWrap:'wrap',justifyContent:'center'}}
           >
-            {recipes.map((recipe) => (
-              <div key={recipe._id}>
-                <Link to={`/recipe/${recipe._id}`}>
+            {recipes.map((recipe) =>  
+            <div key={recipe._id} id="container">
+            <div>               
+              <Link to={`/recipe/${recipe._id}`} style={{textDecoration:'none',color:'black'}} >
                   <div
                     style={{ backgroundImage: `url(${recipe.image})` }}
                     className="image-recipe"
-                  ></div>
-                </Link>
+                  ></div></Link>
+                  </div>
+
+                <div className="overlay">
+                <Link to={`/recipe/${recipe._id}`} style={{textDecoration:'none',color:'black'}} >
                 <div>
-                  <p>{recipe.name}</p>
+                  <p><b>{recipe.name}</b></p>
                   <p>{recipe.type}</p>
-                  <p>{recipe.time}</p>
-                  <p>{recipe.rate}</p>
+                  <p> <MdTimer/> {recipe.time}</p>
+                  <p style={{display:'flex'}} >
+                  <h2 style={{color:'#FED143'}}>{'★'.repeat(Number(recipe.rate))}</h2>
+                  <h2 style={{color:'#B3B3B3'}}>{'★'.repeat(5-Number(recipe.rate))}</h2></p>
                   <p>{recipe.level}</p>
-                </div>
-              </div>
-            ))}
+                  </div>
+                  </Link>
+                  </div>
+
+              </div> 
+            )}
           </div>
         </CardBody>
       </Card>
     </div>
-  );
 };
