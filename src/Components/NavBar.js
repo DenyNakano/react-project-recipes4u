@@ -2,28 +2,23 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { NavItem, Nav } from "reactstrap";
 import "./NavBar.css";
-import { Search } from "./Search";
+import logorecipe4u from "../images/logorecipe4u.png"
 export const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div>
       <div className="main">
         <Nav className="nav">
           <NavItem>
             <Link to="/" className="links" style={{ marginLeft: "30px" }}>
-              Image
+             <img  style={{width:120, height:120, marginTop: -20  }}src={logorecipe4u} alt={logorecipe4u}/>
             </Link>
           </NavItem>
           <div className="nav-links">
             <NavItem>
-              <div
-                className="links"
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                }}
-              >
+              <Link to="/search" className="links">
                 Search
-              </div>
+              </Link>
             </NavItem>
             <NavItem>
               <Link to="/about" className="links">
@@ -33,7 +28,6 @@ export const NavBar = () => {
           </div>
         </Nav>
       </div>
-      <div id="search">{isOpen && <Search />}</div>
     </div>
   );
 };
