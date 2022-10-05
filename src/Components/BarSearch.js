@@ -3,18 +3,16 @@ import { Button, Card, CardBody, Input, InputGroup, InputGroupText } from "react
 import { FaSearch } from "react-icons/fa";
 
 
-export const BarSearch = ({getSearch, search}) => { 
-  /*console.log(getSearch)*/
-  /*const [search, setSearch] = useState('')*/
+export const BarSearch = ({searchItems, search,inputValue}) => { 
   return (
-    <div className="main">
-      <Card style={{ margin: "20px 0" }}>
+    <div>
+      <Card  style={{ margin: "20px 0" }} >
         <CardBody>
           <InputGroup>
-            <Input value={search} onChange={(e) => getSearch(e)} placeholder="Search for recipe" />
+            <Input value={search} onChange={(e) => inputValue(e)} placeholder="Search for recipe" />
             <InputGroupText>
 
-              <Button color="primary">
+              <Button color="primary" onClick={() => searchItems()}>
                 <FaSearch />
               </Button>
 
