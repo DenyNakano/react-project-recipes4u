@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Carousel,
   CarouselItem,
@@ -6,27 +7,34 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from 'reactstrap';
-
+import imageAbout from '../images/bgcarouselabout1.jpg'
+import imageSearch from '../images/bgcarouselrecipes.jpg'
+import imageNewRecipe from '../images/bgcarouselshare.jpg'
 export const Carrousel = (args) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+  //const itemsLink = ['about','search','new-recipe']
+  
   const items = [
     {
-      src: 'https://picsum.photos/id/123/1200/400',
+      src: imageAbout,
       altText: 'Slide 1',
       caption: 'Slide 1',
+      link:'about',
       key: 1,
     },
     {
-      src: 'https://picsum.photos/id/456/1200/400',
+      src: imageSearch,
       altText: 'Slide 2',
       caption: 'Slide 2',
+      link:'search',
       key: 2,
     },
     {
-      src: 'https://picsum.photos/id/678/1200/400',
+      src: imageNewRecipe,
       altText: 'Slide 3',
       caption: 'Slide 3',
+      link:'new-recipe',
       key: 3,
     },
   ];
@@ -45,7 +53,6 @@ export const Carrousel = (args) => {
     if (animating) return;
     setActiveIndex(newIndex);
   };
-
   const slides = items.map((item) => {
     return (
       <CarouselItem
@@ -53,7 +60,9 @@ export const Carrousel = (args) => {
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-        <img src={item.src} alt={item.altText} />
+      <Link to={`/${item.link}`} >
+        <img src={item.src} alt={item.altText} style={{width:1100,height:800}}  />
+      </Link>
         <CarouselCaption
           captionText={item.caption}
           captionHeader={item.caption}
@@ -89,5 +98,4 @@ export const Carrousel = (args) => {
       />
       </Carousel>
     </div>
-  )
-}
+    )}
