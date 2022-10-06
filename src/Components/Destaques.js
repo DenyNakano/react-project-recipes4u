@@ -25,7 +25,7 @@ export const Destaques = () => {
     <div className="content">
       <Card>
         <CardBody>
-          <CardTitle tag="h1">Destaques</CardTitle>
+          <CardTitle style={{textAlign:'center'}}tag="h1">Destaques</CardTitle>
           <div
           style={{display:'flex',flexWrap:'wrap',justifyContent:'center'}}
           >
