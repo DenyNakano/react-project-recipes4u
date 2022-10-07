@@ -10,9 +10,9 @@ import { CommentsForm } from '../Components/CommentsForm'
 export const RecipeDetails = () => {
   const { id } = useParams()
   const [recipe, setRecipe] = useState({});
-
+  //const [comments,setComments] = useState([]);
   
-
+  
   useEffect(() => {
     const getRecipe = async () => {
       try {
@@ -27,6 +27,18 @@ export const RecipeDetails = () => {
     };
     getRecipe();
   }, [id]);
+
+  /*useEffect(()=>{
+    const getComments = async () =>{
+      try{
+        const {data} = await axios.get("https://ironrest.herokuapp.com/commentsRecipes")
+        console.log(data)
+      }catch(error){
+        console.log(error)
+      }
+    }
+    getComments()
+  },[id])*/
   
   return(
     Object.values(recipe).length === 0 
@@ -70,9 +82,9 @@ export const RecipeDetails = () => {
             </li>
           )}
         </ul>
+        <CommentsForm recipeId ={id}/>
         </CardBody>
       </Card>
-      <CommentsForm/>
     </div>
     
 )
