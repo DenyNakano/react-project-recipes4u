@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 export const TitleLogo = () => {
-    const words = ["U", "YOUR FRIENDS", "YOUR FAMILY"];
+    const words = useMemo(() => ["U", "YOUR FRIENDS", "YOUR FAMILY"], []);
   const [word, setWord] = useState(words[0]);
   useEffect(() => {
     setTimeout(() => {
