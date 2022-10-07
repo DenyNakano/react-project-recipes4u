@@ -10,21 +10,22 @@ export const RecipeDetails = () => {
   const { id } = useParams()
   const [recipe, setRecipe] = useState({});
 
-  const getRecipe = async () => {
-    try {
-      const { data } = await axios.get(
-        `https://ironrest.herokuapp.com/recipes4u/${id}`
-      );
-
-      setRecipe(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   
+
   useEffect(() => {
+    const getRecipe = async () => {
+      try {
+        const { data } = await axios.get(
+          `https://ironrest.herokuapp.com/recipes4u/${id}`
+        );
+  
+        setRecipe(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     getRecipe();
-  }, [getRecipe]);
+  }, [id]);
   
   return(
     Object.values(recipe).length === 0 
