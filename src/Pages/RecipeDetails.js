@@ -5,6 +5,7 @@ import "./RecipeDetails.css"
 import { Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap'
 import { Loading } from '../Components/Loading'
 import {  MdTimer } from "react-icons/md";
+import { CommentsForm } from '../Components/CommentsForm'
 
 export const RecipeDetails = () => {
   const { id } = useParams()
@@ -71,6 +72,7 @@ export const RecipeDetails = () => {
         </ul>
         </CardBody>
       </Card>
+      <CommentsForm/>
     </div>
     
 )
