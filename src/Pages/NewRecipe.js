@@ -13,8 +13,7 @@ export const NewRecipe = () => {
   const [Imagem, setImagem] = useState('')
   const [Categoria, setCategoria] = useState('Prato Principal')
   const [Tempo, setTempo] = useState('')
-  const [Dificuldade, setDificuldade] = useState('😄 Fácil') 
-  const [Avaliação, setAvaliação] = useState(0)                                                                                    
+  const [Dificuldade, setDificuldade] = useState('😄 Fácil')                                                                                   
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
@@ -23,11 +22,11 @@ export const NewRecipe = () => {
       type: Categoria,
       name: Receita,
       description: Descrição,
-      ingredients: Ingredientes.split(','),
+      ingredients: Ingredientes.split(';'),
       preparation: Preparo.split(';'),
       time: Tempo,
       level: Dificuldade,
-      rate: Number(Avaliação),
+      rate: 0,
       image: Imagem,
     }
     
@@ -42,7 +41,6 @@ export const NewRecipe = () => {
       setPreparo('')
       setTempo('')
       setDificuldade('😄 Fácil')
-      setAvaliação(0)
       setImagem('')
       navigate('/')
 
@@ -76,11 +74,11 @@ export const NewRecipe = () => {
       </FormGroup>
       <FormGroup>
         <Label>Ingredientes</Label>
-        <Input style={{height: 200}} type="textarea" value={Ingredientes} placeholder="Ingredientes da receita" onChange={(e) =>{setIngredientes(e.target.value)}}/>
+        <Input style={{height: 200}} type="textarea" value={Ingredientes} placeholder="Separe os ingredientes por ';'" onChange={(e) =>{setIngredientes(e.target.value)}}/>
       </FormGroup>
       <FormGroup>
         <Label>Preparo</Label>
-        <Input style={{height: 200}}   type="textarea" value={Preparo} placeholder="Passos da receitas" onChange={(e) =>{setPreparo(e.target.value)}}/>
+        <Input style={{height: 200}}   type="textarea" value={Preparo} placeholder="Separe o passo a passo por ';'" onChange={(e) =>{setPreparo(e.target.value)}}/>
       </FormGroup>
       <Row>
       <Col md={6}>
@@ -119,12 +117,7 @@ export const NewRecipe = () => {
         </Input>
       </FormGroup>
       </Col>
-      <Col md={3}>
-      <FormGroup>
-        <Label>Avaliação</Label>
-        <Input type="number" value={Avaliação} onChange={(e) =>{setAvaliação(e.target.value)}}/>
-      </FormGroup>
-      </Col>
+      
       </Row>
       <div style={{display:"flex",justifyContent:"center",alignItem:"center"}}>
       <Button style={{width:"50%"}}
