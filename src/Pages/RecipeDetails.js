@@ -10,10 +10,6 @@ export const RecipeDetails = () => {
   const { id } = useParams()
   const [recipe, setRecipe] = useState({});
 
-
-  useEffect(() => {
-    getRecipe();
-  }, []);
   const getRecipe = async () => {
     try {
       const { data } = await axios.get(
@@ -25,6 +21,11 @@ export const RecipeDetails = () => {
       console.log(error);
     }
   };
+  
+  useEffect(() => {
+    getRecipe();
+  }, [getRecipe]);
+  
   return(
     Object.values(recipe).length === 0 
       ? 

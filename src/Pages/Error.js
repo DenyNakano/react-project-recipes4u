@@ -10,7 +10,7 @@ export const Error = () => {
       navigate('/')
     }
     ,3000)
-  },[])
+  },[navigate])
   return(
    <div>
      <Loading/>

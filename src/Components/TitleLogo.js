@@ -10,7 +10,7 @@ export const TitleLogo = () => {
         ]
       );
     }, 1000);
-  }, [word]);
+  }, [word, words]);
   return (
     <div>
         RECIPE 4 {word}
