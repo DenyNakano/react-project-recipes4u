@@ -5,14 +5,16 @@ import "./RecipeDetails.css"
 import { Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap'
 import { Loading } from '../Components/Loading'
 import {  MdTimer } from "react-icons/md";
-import { CommentsForm } from '../Components/CommentsForm'
+import { AddComment } from '../Components/AddComment'
+import { CommentRecipe } from '../Components/CommentRecipe'
 
 export const RecipeDetails = () => {
   const { id } = useParams()
-  const [recipe, setRecipe] = useState({});
-  //const [comments,setComments] = useState([]);
-  
-  
+  const [recipe, setRecipe] = useState({});  
+  const [comments,setComments] = useState([]);
+  const [filteredComments,setFilteredComments] = useState([]) 
+  const [authorInput,setAuthorInput] = useState('');
+  const [commentsInput,setCommentsInput] = useState('');
   useEffect(() => {
     const getRecipe = async () => {
       try {
@@ -28,18 +30,52 @@ export const RecipeDetails = () => {
     getRecipe();
   }, [id]);
 
-  /*useEffect(()=>{
+  useEffect(()=>{
     const getComments = async () =>{
       try{
         const {data} = await axios.get("https://ironrest.herokuapp.com/commentsRecipes")
-        console.log(data)
+        setComments(data)
       }catch(error){
         console.log(error)
       }
     }
     getComments()
-  },[id])*/
+  },[])
+  useEffect(()=>{
+    const commentsByRecipe = ()=>{
+        const commentsRecipe = comments.filter((comment)=> comment.idRecipe === id)
+        setFilteredComments(commentsRecipe)
+      }
+      commentsByRecipe()
+  },[comments,id])
   
+
+  const changeInputAuthor = (event)=>{
+    setAuthorInput(event.target.value)
+  }
+  
+  const changeInputComments = (event)=>{
+    setCommentsInput(event.target.value)
+  }
+
+  const handleSubmit = async (event)=>{
+   event.preventDefault()
+   const comment ={
+      idRecipe: id,
+      author: authorInput,
+      comment: commentsInput
+   }
+   setAuthorInput('')
+   setCommentsInput('')
+  try{
+    await axios.post('https://ironrest.herokuapp.com/commentsRecipes',comment)
+      setComments([...comments,comment])
+   }catch(error){
+      console.log(error)
+   }
+   
+  }
+
   return(
     Object.values(recipe).length === 0 
       ? 
@@ -82,7 +118,8 @@ export const RecipeDetails = () => {
             </li>
           )}
         </ul>
-        <CommentsForm recipeId ={id}/>
+        <AddComment handleSubmit={handleSubmit} changeInputAuthor={changeInputAuthor} changeInputComments={changeInputComments} authorInput={authorInput} commentsInput={commentsInput} />
+        <CommentRecipe filteredComments={filteredComments} />
         </CardBody>
       </Card>
     </div>
