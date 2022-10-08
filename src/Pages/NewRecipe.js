@@ -55,7 +55,7 @@ export const NewRecipe = () => {
     <h1>Adicionar Receita</h1>
     </div>
     <Row>
-    <Col md={4}>
+    <Col md={6}>
       <FormGroup>
         <Label>Autor</Label>
         <Input type="text" value={Autor} placeholder="Autor da postagem receita" onChange={(e) =>{setAutor(e.target.value)}}/>
