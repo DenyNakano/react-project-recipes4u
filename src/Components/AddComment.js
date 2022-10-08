@@ -1,4 +1,8 @@
-export const AddComment = ({handleSubmit,changeInputAuthor,changeInputComments,authorInput,commentsInput})=>{
+import React from "react";
+import { StarRating } from "./StarRating";
+
+export const AddComment = ({handleSubmit,changeInputAuthor,changeInputComments,authorInput,commentsInput,changeInputRating,rating})=>{
+ 
   return (
     <form onSubmit={(e)=>handleSubmit(e)}>
       <div>Comments</div>
@@ -10,6 +14,7 @@ export const AddComment = ({handleSubmit,changeInputAuthor,changeInputComments,a
             <label>Comments</label>
             <input type="text" value={commentsInput} onChange={(e)=>{changeInputComments(e)}} />
         </div>
+        <StarRating changeInputRating={changeInputRating} rating={rating}/>
         <div>
             <button>Add comment</button>
         </div>

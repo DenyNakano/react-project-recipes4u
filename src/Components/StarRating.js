@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { MdStar } from 'react-icons/md';
 import "./StarRating.css"
 
-export const StarRating = () => {
-    const [rating, setRating] = useState(null);
+export const StarRating = ({changeInputRating,rating}) => {
     const [hover, setHover] = useState(null);
-
+    console.log(rating)
     return (
         <div>
             {[...Array(5)].map((star, i) => {
@@ -16,7 +15,8 @@ export const StarRating = () => {
                             type="radio"
                             name="rating"
                             value={ratingValue}
-                            onClick={() => setRating(ratingValue)}
+                            onClick={(e) => changeInputRating(e)}
+                            
                         />
                         <MdStar
                             className="Star"

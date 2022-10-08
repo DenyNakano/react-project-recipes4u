@@ -15,6 +15,7 @@ export const RecipeDetails = () => {
   const [filteredComments,setFilteredComments] = useState([]) 
   const [authorInput,setAuthorInput] = useState('');
   const [commentsInput,setCommentsInput] = useState('');
+  const [rating, setRating] = useState(null);
   useEffect(() => {
     const getRecipe = async () => {
       try {
@@ -58,16 +59,22 @@ export const RecipeDetails = () => {
     setCommentsInput(event.target.value)
   }
 
+  const changeInputRating = (event)=>{
+    setRating(event.target.value)
+  }
+
   const handleSubmit = async (event)=>{
    event.preventDefault()
    const comment ={
       idRecipe: id,
       author: authorInput,
       comment: commentsInput,
+      rate: rating,
       created_at: new Date()
    }
    setAuthorInput('')
    setCommentsInput('')
+   setRating(null)
   try{
     await axios.post('https://ironrest.herokuapp.com/commentsRecipes',comment)
       setComments([...comments,comment])
@@ -119,7 +126,8 @@ export const RecipeDetails = () => {
             </li>
           )}
         </ul>
-        <AddComment handleSubmit={handleSubmit} changeInputAuthor={changeInputAuthor} changeInputComments={changeInputComments} authorInput={authorInput} commentsInput={commentsInput} />
+        <AddComment handleSubmit={handleSubmit} changeInputAuthor={changeInputAuthor} changeInputComments={changeInputComments} 
+        changeInputRating={changeInputRating} authorInput={authorInput} commentsInput={commentsInput} rating={rating} />
         <CommentRecipe filteredComments={filteredComments} />
         </CardBody>
       </Card>

@@ -1,4 +1,5 @@
 import React from 'react'
+
 export const CommentRecipe = ({filteredComments}) => {
 const timeFormat = (time) =>{
     return `${time.getDate()}/${time.getMonth() + 1}/${time.getFullYear()}`
@@ -14,6 +15,7 @@ const timeFormat = (time) =>{
         <p>comment: {filteredComment.comment}</p>
         <p>data:{timeFormat(new Date(filteredComment.created_at))}</p>
         <p>horário:{timeHour(new Date(filteredComment.created_at))}</p>
+       
        </div>
 
     )}
