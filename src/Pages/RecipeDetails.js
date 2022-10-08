@@ -63,7 +63,8 @@ export const RecipeDetails = () => {
    const comment ={
       idRecipe: id,
       author: authorInput,
-      comment: commentsInput
+      comment: commentsInput,
+      created_at: new Date()
    }
    setAuthorInput('')
    setCommentsInput('')
