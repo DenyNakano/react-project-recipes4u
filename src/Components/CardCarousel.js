@@ -5,12 +5,14 @@ import { Carrousel } from "./Carrousel";
 import { TitleLogo } from "./TitleLogo";
 export const CardCarousel = () => {
   return (
-    <div className="content" >
+    <div className="content">
       <Card className="card">
-        <CardBody className="content" >
-          <div style={{textAlign:'center'}} >
-          <CardTitle tag="h1"><TitleLogo/></CardTitle>
-          <Carrousel/>
+        <CardBody className="content">
+          <div style={{ textAlign: "center" }}>
+            <CardTitle tag="h1">
+              <TitleLogo />
+            </CardTitle>
+            <Carrousel />
           </div>
         </CardBody>
       </Card>

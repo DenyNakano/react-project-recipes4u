@@ -1,13 +1,12 @@
-import React from 'react'
-import { CardCarousel } from '../Components/CardCarousel'
-import { Destaques } from '../Components/Destaques'
+import React from "react";
+import { CardCarousel } from "../Components/CardCarousel";
+import { Destaques } from "../Components/Destaques";
 
 export const Home = () => {
   return (
     <div>
-      <CardCarousel/>
-      <Destaques/>
+      <CardCarousel />
+      <Destaques />
     </div>
-    
-  )
-}
+  );
+};

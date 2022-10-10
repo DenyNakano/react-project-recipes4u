@@ -1,40 +1,38 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
   CarouselCaption,
-} from 'reactstrap';
-import imageAbout from '../images/bgcarouselabout1.jpg'
-import imageSearch from '../images/bgcarouselrecipes.jpg'
-import imageNewRecipe from '../images/bgcarouselshare.jpg'
+} from "reactstrap";
+import imageAbout from "../images/bgcarouselabout1.jpg";
+import imageSearch from "../images/bgcarouselrecipes.jpg";
+import imageNewRecipe from "../images/bgcarouselshare.jpg";
 export const Carrousel = (args) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
-  //const itemsLink = ['about','search','new-recipe']
-  
   const items = [
     {
       src: imageAbout,
-      altText: 'Slide 1',
-      caption: 'Slide 1',
-      link:'about',
+      altText: "Slide 1",
+      caption: "Slide 1",
+      link: "about",
       key: 1,
     },
     {
       src: imageSearch,
-      altText: 'Slide 2',
-      caption: 'Slide 2',
-      link:'search',
+      altText: "Slide 2",
+      caption: "Slide 2",
+      link: "search",
       key: 2,
     },
     {
       src: imageNewRecipe,
-      altText: 'Slide 3',
-      caption: 'Slide 3',
-      link:'new-recipe',
+      altText: "Slide 3",
+      caption: "Slide 3",
+      link: "new-recipe",
       key: 3,
     },
   ];
@@ -60,9 +58,13 @@ export const Carrousel = (args) => {
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-      <Link to={`/${item.link}`} >
-        <img src={item.src} alt={item.altText} style={{width:1100,height:800}}  />
-      </Link>
+        <Link to={`/${item.link}`}>
+          <img
+            src={item.src}
+            alt={item.altText}
+            style={{ width: 1100, height: 800 }}
+          />
+        </Link>
         <CarouselCaption
           captionText={item.caption}
           captionHeader={item.caption}
@@ -71,31 +73,31 @@ export const Carrousel = (args) => {
     );
   });
 
-
   return (
     <div>
       <Carousel
-       activeIndex={activeIndex}
-      next={next}
-      previous={previous}
-      {...args}
-      >
-      <CarouselIndicators
-        items={items}
         activeIndex={activeIndex}
-        onClickHandler={goToIndex}
-      />
-      {slides}
-      <CarouselControl
-        direction="prev"
-        directionText="Previous"
-        onClickHandler={previous}
-      />
-      <CarouselControl
-        direction="next"
-        directionText="Next"
-        onClickHandler={next}
-      />
+        next={next}
+        previous={previous}
+        {...args}
+      >
+        <CarouselIndicators
+          items={items}
+          activeIndex={activeIndex}
+          onClickHandler={goToIndex}
+        />
+        {slides}
+        <CarouselControl
+          direction="prev"
+          directionText="Previous"
+          onClickHandler={previous}
+        />
+        <CarouselControl
+          direction="next"
+          directionText="Next"
+          onClickHandler={next}
+        />
       </Carousel>
     </div>
-    )}
+  );
+};

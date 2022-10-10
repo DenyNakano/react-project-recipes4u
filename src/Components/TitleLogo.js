@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 export const TitleLogo = () => {
-    const words = useMemo(() => ["U", "YOUR FRIENDS", "YOUR FAMILY"], []);
+  const words = useMemo(() => ["U", "YOUR FRIENDS", "YOUR FAMILY"], []);
   const [word, setWord] = useState(words[0]);
   useEffect(() => {
     setTimeout(() => {
@@ -11,9 +11,5 @@ export const TitleLogo = () => {
       );
     }, 1000);
   }, [word, words]);
-  return (
-    <div>
-        RECIPE 4 {word}
-    </div>
-  )
-}
+  return <div>RECIPE 4 {word}</div>;
+};
