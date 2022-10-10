@@ -7,6 +7,7 @@ import { MdTimer } from "react-icons/md";
 import { Loading } from "./Loading";
 export const Destaques = () => {
   const [recipes, setRecipes] = useState([]);
+  const [bestRecipes,setBestRecipes] = useState(recipes)
   useEffect(() => {
     getRecipes();
   }, []);
@@ -19,7 +20,10 @@ export const Destaques = () => {
     } catch (error) {
       console.log(error);
     }
-  };
+  }
+  useEffect(()=>{
+   setBestRecipes(recipes.filter((recipe)=> recipe.rate === "4" || recipe.rate === "5"))
+  },[recipes])
   return recipes.length === 0 ? (
     <Loading />
   ) : (
@@ -36,7 +40,7 @@ export const Destaques = () => {
               justifyContent: "center",
             }}
           >
-            {recipes.map((recipe) => (
+            {bestRecipes.map((recipe) => (
               <div key={recipe._id} id="container">
                 <div>
                   <Link
