@@ -15,7 +15,7 @@ export const RecipeDetails = () => {
   const [filteredComments, setFilteredComments] = useState([])
   const [authorInput, setAuthorInput] = useState('');
   const [commentsInput, setCommentsInput] = useState('');
-  console.log(comments)
+  const [star,setStar] = useState(0)
   const [rating, setRating] = useState(null);
   useEffect(() => {
     const getRecipe = async () => {
@@ -84,6 +84,21 @@ export const RecipeDetails = () => {
     }
 
   }
+  useEffect(()=>{
+    const filteredRate = async () =>{
+      try{
+    if(filteredComments.length === 0){
+      await axios.put(`https://ironrest.herokuapp.com/recipes4u/${id}`,{rate: '0'})
+      setStar(0)
+    }else{
+     let number = filteredComments.map((element)=> Number(element.rate)).reduce((acc,cur) => acc + cur,0)/filteredComments.length
+   await axios.put(`https://ironrest.herokuapp.com/recipes4u/${id}`,{rate: Math.round(number).toString()})
+   setStar(Math.round(number))
+  }}catch(error){
+    console.log(error)
+  }}
+  filteredRate()
+},[filteredComments,id])
 
   return (
     Object.values(recipe).length === 0
@@ -112,26 +127,26 @@ export const RecipeDetails = () => {
                 <li key={index}>{ingredient}</li>
               )}
             </ul>
-            <div style={{ display: 'flex', width: '50%', justifyContent: 'space-between', alignItems: 'center', }}>
+            <div style={{ display: 'flex', width: '50%', justifyContent: 'space-between', alignItems: 'center'}}>
               <h5><MdTimer />{recipe?.time}</h5>
               <h5>{recipe?.level}</h5>
               <p style={{ display: 'flex' }} >
                 
                 <span>
-                  {[...Array(Number(recipe?.rate))].map((star) => 
+                  {[...Array( Number(star))].map((star,index) => 
                     
-                    <MdStar
-                
+                    <MdStar key={index}
                       color="#ffc107"
                       size={50}
                 />)}
-                  {[...Array(5-Number(recipe?.rate))].map((star) => 
-                    <MdStar
+                  {[...Array(5-Number(star))].map((star,index) => 
+                    <MdStar key={index}
                       
                       color="#e4e5e9"
                       size={50}
 
                   />)}
+                  {filteredComments.length} {filteredComments.length < 2 ? 'voto':'votos'}
                   </span>
               </p>
             </div>
