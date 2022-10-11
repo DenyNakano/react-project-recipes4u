@@ -1,4 +1,4 @@
-# Recipes 4U ![logo](./src/images/logorecipe4u.png)
+# Recipes 4U ![logo](./src/images/logo.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
