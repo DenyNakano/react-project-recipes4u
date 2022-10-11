@@ -57,8 +57,8 @@ export const Destaques = () => {
               justifyContent: "center",
             }}
           >
-            {arrBestRecipes.map((recipe) => (
-              <div key={recipe._id} id="container">
+            {arrBestRecipes.map((recipe,index) => (
+              <div key={index} id="container">
                 <div>
                   <Link
                     to={`/recipe/${recipe._id}`}

@@ -94,7 +94,7 @@ export const RecipeDetails = () => {
       try {
         if (filteredComments.length === 0) {
           await axios.put(`https://ironrest.herokuapp.com/recipes4u/${id}`, {
-            rate: "0",
+            rate: 0,
           });
           setStar(0);
         } else {  
@@ -103,7 +103,7 @@ export const RecipeDetails = () => {
               .map((element) => Number(element.rate))
               .reduce((acc, cur) => acc + cur, 0) / filteredComments.length;
           await axios.put(`https://ironrest.herokuapp.com/recipes4u/${id}`, {
-            rate: Math.round(number).toString(),
+            rate: Math.round(number),
           });
           setStar(Math.round(number));
         }
@@ -117,7 +117,7 @@ export const RecipeDetails = () => {
   return Object.values(recipe).length === 0 ? (
     <Loading />
   ) : (
-    <div className="main content">
+    <div className="main content" style={{backgroundColor:"#d9d9db",padding:"30px 0",margin:0}} >
       <Card>
         <CardBody>
           <div style={{ width: "80%" }}>
@@ -156,10 +156,10 @@ export const RecipeDetails = () => {
             <h5>{recipe?.level}</h5>
             <p style={{ display: "flex" }}>
               <span>
-                {[...Array(Number(star))].map((star, index) => (
+                {[...Array(star)].map((star, index) => (
                   <MdStar key={index} color="#ffc107" size={50} />
                 ))}
-                {[...Array(5 - Number(star))].map((star, index) => (
+                {[...Array(5 - star)].map((star, index) => (
                   <MdStar key={index} color="#e4e5e9" size={50} />
                 ))}
                 {filteredComments.length}{" "}
@@ -171,7 +171,7 @@ export const RecipeDetails = () => {
           <ul>
             {recipe?.preparation?.map((step, index) => (
               <li key={index}>
-                {index + 1} {step}
+                <span style={{color:"#978f84",fontSize:40}}><b>{index + 1}</b></span> {step}
               </li>
             ))}
           </ul>
