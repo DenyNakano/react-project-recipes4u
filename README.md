@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Recipes 4U ![logo](./src/images/logorecipe4u.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

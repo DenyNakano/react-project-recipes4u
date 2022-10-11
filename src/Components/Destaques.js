@@ -21,12 +21,12 @@ export const Destaques = () => {
     }
   }
   const bestRecipesSobremesa =()=>{
-   const filteredSobremesa =  recipes.filter((recipe)=> recipe.type === "sobremesa")
+   const filteredSobremesa =  recipes.filter((recipe)=> recipe.type === "Sobremesa")
    const filteredRateSobremesa = filteredSobremesa.map((recipe)=> Number(recipe.rate) )
     return filteredSobremesa.filter((sobremesa) => Number(sobremesa.rate) === Math.max(...filteredRateSobremesa))[0]
   }
   const bestRecipesDrinks =()=>{
-    const filteredDrinks =  recipes.filter((recipe)=> recipe.type === "drinks")
+    const filteredDrinks =  recipes.filter((recipe)=> recipe.type === "Drinks")
     const filteredRateDrinks = filteredDrinks.map((recipe)=> Number(recipe.rate) )
      return filteredDrinks.filter((drink) => Number(drink.rate) === Math.max(...filteredRateDrinks))[0]
    }
@@ -36,7 +36,7 @@ export const Destaques = () => {
      return filteredPratos.filter((prato) => Number(prato.rate) === Math.max(...filteredRatePratos))[0]
    }
    const bestRecipesMassas =()=>{
-    const filteredMassas =  recipes.filter((recipe)=> recipe.type === "massas")
+    const filteredMassas =  recipes.filter((recipe)=> recipe.type === "Massas")
     const filteredRateMassas = filteredMassas.map((recipe)=> Number(recipe.rate) )
      return filteredMassas.filter((massa) => Number(massa.rate) === Math.max(...filteredRateMassas))[0]
    }
