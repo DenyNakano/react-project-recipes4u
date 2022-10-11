@@ -55,7 +55,7 @@ export const Carrousel = (args) => {
           <img
             src={item.src}
             alt={item.altText}
-            style={ item.link === "new-recipe" ? {width: 950,height:800}  : {width: 1100, height: 800}}
+            style={{width: 900, height: 700}}
           />
         </Link>
       </CarouselItem>

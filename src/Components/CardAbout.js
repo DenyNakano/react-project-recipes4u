@@ -11,6 +11,7 @@ export const CardAbout = () => {
           src={aboutpage}
           style={{
             height: 800,
+            opacity: 0.8,
           }}
           width="100%"
         />
