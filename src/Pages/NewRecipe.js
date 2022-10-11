@@ -21,15 +21,14 @@ export const NewRecipe = () => {
     let NewRecipe = {
       type: Categoria,
       name: Receita,
-      description: Descrição,
-      ingredients: Ingredientes.split(";"),
-      preparation: Preparo.split(";"),
+      description: Descrição.trim(),
+      ingredients: Ingredientes.split(";").map((step)=>step.trim()),
+      preparation: Preparo.split(";").map((step)=>step.trim()),
       time: Tempo,
       level: Dificuldade,
       rate: 0,
       image: Imagem,
     };
-
     try {
       await axios.post("https://ironrest.herokuapp.com/recipes4u", NewRecipe);
       setCategoria("Prato Principal");
@@ -153,7 +152,7 @@ export const NewRecipe = () => {
                   <option>Drinks</option>
                   <option>Acompanhamentos</option>
                   <option>Massas</option>
-                  <option>Sobremesas</option>
+                  <option>Sobremesa</option>
                 </Input>
               </FormGroup>
             </Col>
@@ -167,7 +166,7 @@ export const NewRecipe = () => {
                 <Input
                   type="text"
                   value={Tempo}
-                  placeholder="0 min"
+                  placeholder="0h 0min"
                   onChange={(e) => {
                     setTempo(e.target.value);
                   }}
