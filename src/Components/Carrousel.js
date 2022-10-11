@@ -5,7 +5,6 @@ import {
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption,
 } from "reactstrap";
 import imageAbout from "../images/bgcarouselabout1.jpg";
 import imageSearch from "../images/bgcarouselrecipes.jpg";
@@ -16,22 +15,16 @@ export const Carrousel = (args) => {
   const items = [
     {
       src: imageAbout,
-      altText: "Slide 1",
-      caption: "Slide 1",
       link: "about",
       key: 1,
     },
     {
       src: imageSearch,
-      altText: "Slide 2",
-      caption: "Slide 2",
       link: "search",
       key: 2,
     },
     {
       src: imageNewRecipe,
-      altText: "Slide 3",
-      caption: "Slide 3",
       link: "new-recipe",
       key: 3,
     },
@@ -62,13 +55,9 @@ export const Carrousel = (args) => {
           <img
             src={item.src}
             alt={item.altText}
-            style={{ width: 1100, height: 800 }}
+            style={ item.link === "new-recipe" ? {width: 950,height:800}  : {width: 1100, height: 800}}
           />
         </Link>
-        <CarouselCaption
-          captionText={item.caption}
-          captionHeader={item.caption}
-        />
       </CarouselItem>
     );
   });

@@ -20,7 +20,7 @@ export const BarSearch = ({ searchItems, search, inputValue }) => {
               placeholder="Search for recipe"
             />
             <InputGroupText>
-              <Button color="primary" onClick={() => searchItems()}>
+              <Button color="second" onClick={() => searchItems()}>
                 <FaSearch />
               </Button>
             </InputGroupText>

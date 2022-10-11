@@ -97,7 +97,7 @@ export const RecipeDetails = () => {
             rate: "0",
           });
           setStar(0);
-        } else {
+        } else {  
           let number =
             filteredComments
               .map((element) => Number(element.rate))

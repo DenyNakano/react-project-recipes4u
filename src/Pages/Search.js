@@ -42,20 +42,20 @@ export const Search = () => {
   return recipes.length === 0 ? (
     <Loading />
   ) : (
-    <div style={{ marginLeft: 100 }}>
+    <div style={{ paddingLeft: 100,backgroundColor:"#d9d9db",paddingTop: 10 }}>
       <div>
         <BarSearch
           searchItems={searchItems}
           search={searchInput}
           inputValue={inputValue}
         />
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", flexWrap: "wrap"}}>
           {filteredResults.map((recipe) => (
             <div key={recipe._id} id="container">
               <div>
                 <Link
                   to={`/recipe/${recipe._id}`}
-                  style={{ textDecoration: "none", color: "black" }}
+                  style={{ textDecoration: "none"}}
                 >
                   <div
                     style={{ backgroundImage: `url(${recipe.image})` }}
@@ -67,7 +67,7 @@ export const Search = () => {
               <div className="overlay">
                 <Link
                   to={`/recipe/${recipe._id}`}
-                  style={{ textDecoration: "none", color: "black" }}
+                  style={{ textDecoration: "none", color: "white" }}
                 >
                   <div>
                     <p>

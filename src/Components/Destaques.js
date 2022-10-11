@@ -7,7 +7,6 @@ import { MdTimer } from "react-icons/md";
 import { Loading } from "./Loading";
 export const Destaques = () => {
   const [recipes, setRecipes] = useState([]);
-  const [bestRecipes,setBestRecipes] = useState(recipes)
   useEffect(() => {
     getRecipes();
   }, []);
@@ -21,9 +20,27 @@ export const Destaques = () => {
       console.log(error);
     }
   }
-  useEffect(()=>{
-   setBestRecipes(recipes.filter((recipe)=> recipe.rate === "4" || recipe.rate === "5"))
-  },[recipes])
+  const bestRecipesSobremesa =()=>{
+   const filteredSobremesa =  recipes.filter((recipe)=> recipe.type === "sobremesa")
+   const filteredRateSobremesa = filteredSobremesa.map((recipe)=> Number(recipe.rate) )
+    return filteredSobremesa.filter((sobremesa) => Number(sobremesa.rate) === Math.max(...filteredRateSobremesa))[0]
+  }
+  const bestRecipesDrinks =()=>{
+    const filteredDrinks =  recipes.filter((recipe)=> recipe.type === "drinks")
+    const filteredRateDrinks = filteredDrinks.map((recipe)=> Number(recipe.rate) )
+     return filteredDrinks.filter((drink) => Number(drink.rate) === Math.max(...filteredRateDrinks))[0]
+   }
+   const bestRecipesPratos =()=>{
+    const filteredPratos =  recipes.filter((recipe)=> recipe.type === "Prato Principal")
+    const filteredRatePratos = filteredPratos.map((recipe)=> Number(recipe.rate) )
+     return filteredPratos.filter((prato) => Number(prato.rate) === Math.max(...filteredRatePratos))[0]
+   }
+   const bestRecipesMassas =()=>{
+    const filteredMassas =  recipes.filter((recipe)=> recipe.type === "massas")
+    const filteredRateMassas = filteredMassas.map((recipe)=> Number(recipe.rate) )
+     return filteredMassas.filter((massa) => Number(massa.rate) === Math.max(...filteredRateMassas))[0]
+   }
+  const arrBestRecipes = [bestRecipesSobremesa(),bestRecipesDrinks(),bestRecipesPratos(),bestRecipesMassas()] 
   return recipes.length === 0 ? (
     <Loading />
   ) : (
@@ -40,7 +57,7 @@ export const Destaques = () => {
               justifyContent: "center",
             }}
           >
-            {bestRecipes.map((recipe) => (
+            {arrBestRecipes.map((recipe) => (
               <div key={recipe._id} id="container">
                 <div>
                   <Link
@@ -57,7 +74,7 @@ export const Destaques = () => {
                 <div className="overlay">
                   <Link
                     to={`/recipe/${recipe._id}`}
-                    style={{ textDecoration: "none", color: "black" }}
+                    style={{ textDecoration: "none", color: "white" }}
                   >
                     <div>
                       <p>

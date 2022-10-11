@@ -46,7 +46,7 @@ export const NewRecipe = () => {
     }
   };
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ display: "flex", justifyContent: "center" ,backgroundColor:"#d9d9db"}}>
       <div
         style={{
           display: "flex",
@@ -198,7 +198,7 @@ export const NewRecipe = () => {
               alignItem: "center",
             }}
           >
-            <Button style={{ width: "50%" }} color="primary" outline>
+            <Button style={{ width: "50%" }} color="warning">
               Salvar
             </Button>
           </div>
