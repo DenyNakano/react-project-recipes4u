@@ -1,23 +1,39 @@
 # Recipes 4U ![logo](./src/images/logo.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was deployed with [Netlify](https://incredible-marshmallow-4076bf.netlify.app).
+Created by [Shania Antezana](https://github.com/Shania810) and [Deny Nakano](https://github.com/DenyNakano).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Sobre Recipe 4U
 
-### `npm start`
+Nosso projeto tem como objetivo compartilhar receitas e gerar interação entre os usuários para também adicionar receitas e comentários.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Status do Projeto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Projeto sempre em crescimento com a colaboração dos usuários.
 
-### `npm test`
+## Funcionalidade
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1- Search: Acesso pela barra de Navegação ou pelo Carrousel.
+2- About: Acesso pela barra de Navegação ou pelo Carrousel.
+3- New-Recipe: Acesso pelo Carrousel.
+4- Destaque: Na Home estão selecionados 4 pratos de categorias diferentes de acordo com o rating feito pelos usuários.
+5- Recipes: Cada receita possui um campo para os usuários fazerem o comentario e avaliar a receita.
+
+## Tecnologias Utilizadas
+
+- `Create React App`
+- `Axios`
+- `JavaScript`
+- `Bootstrap`
+- `React-Icons`
+- `ReactStrap`
+
+## Autores
+| [<img src="https://avatars.githubusercontent.com/u/108907492?s=400&u=eb4e6cd36644bf8fdb3adb21b0f7387ffbeb1bbe&v=4" width=115><br><sub>Deny Nakano</sub>](https://github.com/DenyNakano) |  [<img src="https://avatars.githubusercontent.com/u/108180676?v=4" width=115><br><sub>Shania Antezana</sub>](https://github.com/Shania810) 
+| :---: | :---: |
+
+
 
 ### `npm run build`
 
