@@ -1,4 +1,4 @@
-# Recipes 4U ![logo](./src/images/logo.png)
+# Recipes 4U <div style={height:400}>![logo](./src/images/logo.png)</div>
 
 This project was deployed with [Netlify](https://incredible-marshmallow-4076bf.netlify.app).
 Created by [Shania Antezana](https://github.com/Shania810) and [Deny Nakano](https://github.com/DenyNakano).
