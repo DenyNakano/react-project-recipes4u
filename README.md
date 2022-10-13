@@ -12,9 +12,10 @@ Nosso projeto tem como objetivo compartilhar receitas e gerar interação entre 
 
 Projeto sempre em crescimento com a colaboração dos usuários.
 
-## Funcionalidade
+## Funcionalidade 
 
 1- Search: Acesso pela barra de Navegação ou pelo Carrousel.<br>
+![video](./src/images/Video_221013203339.gif)
 2- About: Acesso pela barra de Navegação ou pelo Carrousel.<br>
 3- New-Recipe: Acesso pelo Carrousel.<br>
 4- Destaque: Na Home estão selecionados 4 pratos de categorias diferentes de acordo com o rating feito pelos usuários.<br>
