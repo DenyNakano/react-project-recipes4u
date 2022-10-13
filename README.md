@@ -1,4 +1,4 @@
-# Recipes 4U ![logo](./src/ToReadMe/aboutpage.jpg)
+# Recipes 4U ![logo](./src/ToReadMe/logo.jpg)
 
 This project was deployed with [Netlify](https://incredible-marshmallow-4076bf.netlify.app).
 Created by [Shania Antezana](https://github.com/Shania810) and [Deny Nakano](https://github.com/DenyNakano).
