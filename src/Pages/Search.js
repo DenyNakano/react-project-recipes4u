@@ -15,10 +15,9 @@ export const Search = () => {
   const searchItems = () => {
     if (searchInput !== "") {
       const filteredData = recipes.filter((recipe) =>
-        Object.values(recipe)
-          .join("")
-          .toLowerCase()
-          .includes(searchInput.toLowerCase())
+        
+        recipe.name.toLowerCase().includes(searchInput.toLowerCase())
+        
       );
       setFilteredResults(filteredData);
     } else {
@@ -42,7 +41,7 @@ export const Search = () => {
   return recipes.length === 0 ? (
     <Loading />
   ) : (
-    <div style={{ paddingLeft: 100, backgroundColor:"#d9d9db", height: "100%", paddingTop: 10 }}>
+    <div style={{ paddingLeft: 100, paddingTop: 10 }}>
       <div>
         <BarSearch
           searchItems={searchItems}

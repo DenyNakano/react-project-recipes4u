@@ -6,7 +6,6 @@ import { RecipeDetails } from "./Pages/RecipeDetails";
 import { Search } from "./Pages/Search";
 import { Error } from "./Pages/Error";
 import { NavBar } from "./Components/NavBar";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {

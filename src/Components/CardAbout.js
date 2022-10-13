@@ -4,7 +4,7 @@ import aboutpage from "../images/aboutpage.jpg";
 
 export const CardAbout = () => {
   return (
-    <div style={{display: "flex", justifyContent: "center", alignItems: "flex-start", height: 800, backgroundColor: "#d9d9db", paddingTop:10}}>
+    <div style={{display: "flex", justifyContent: "center", alignItems: "flex-start", height: 800, paddingTop:10}}>
       <Card  style={{display: "flex", justifyContent: "center", alignItems: "center", border: 0, backgroundColor: "#d9d9db"}}>
         <CardImg
           alt="Card image cap"

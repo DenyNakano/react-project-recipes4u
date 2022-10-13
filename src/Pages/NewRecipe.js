@@ -45,7 +45,7 @@ export const NewRecipe = () => {
     }
   };
   return (
-    <div style={{ display: "flex", justifyContent: "center" ,backgroundColor:"#d9d9db"}}>
+    <div style={{ display: "flex", justifyContent: "center" ,/*backgroundColor:"#d9d9db"*/}}>
       <div
         style={{
           display: "flex",

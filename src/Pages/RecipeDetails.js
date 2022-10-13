@@ -117,7 +117,7 @@ export const RecipeDetails = () => {
   return Object.values(recipe).length === 0 ? (
     <Loading />
   ) : (
-    <div className="main content" style={{backgroundColor:"#d9d9db",padding:"30px 0",margin:0}} >
+    <div className="main content" style={{/*backgroundColor:"#d9d9db",*/padding:"30px 0",margin:0}} >
       <Card>
         <CardBody>
           <div style={{ width: "80%" }}>
