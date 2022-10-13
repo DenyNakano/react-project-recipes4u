@@ -1,4 +1,4 @@
-# Recipes 4U ![logo](./src/images/logo.jpg)
+# Recipes 4U ![logo](./src/ToReadMe/aboutpage.jpg)
 
 This project was deployed with [Netlify](https://incredible-marshmallow-4076bf.netlify.app).
 Created by [Shania Antezana](https://github.com/Shania810) and [Deny Nakano](https://github.com/DenyNakano).
@@ -15,7 +15,7 @@ Projeto sempre em crescimento com a colaboração dos usuários.
 ## Funcionalidade 
 
 1- Search: Acesso pela barra de Navegação ou pelo Carrousel.<br>
-![](./src/images/Video_221013203339.gif)
+![](./src/ToReadMe/Video_221013203339.gif)
 2- About: Acesso pela barra de Navegação ou pelo Carrousel.<br>
 3- New-Recipe: Acesso pelo Carrousel.<br>
 4- Destaque: Na Home estão selecionados 4 pratos de categorias diferentes de acordo com o rating feito pelos usuários.<br>
