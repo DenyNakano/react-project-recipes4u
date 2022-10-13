@@ -20,27 +20,27 @@ export const Destaques = () => {
       console.log(error);
     }
   }
-  const bestRecipesSobremesa =()=>{
-   const filteredSobremesa =  recipes.filter((recipe)=> recipe.type === "Sobremesa")
-   const filteredRateSobremesa = filteredSobremesa.map((recipe)=> Number(recipe.rate) )
+  const bestRecipesSobremesa = () => {
+    const filteredSobremesa = recipes.filter((recipe) => recipe.type === "Sobremesa")
+    const filteredRateSobremesa = filteredSobremesa.map((recipe) =>(recipe.rate))
     return filteredSobremesa.filter((sobremesa) => Number(sobremesa.rate) === Math.max(...filteredRateSobremesa))[0]
   }
-  const bestRecipesDrinks =()=>{
-    const filteredDrinks =  recipes.filter((recipe)=> recipe.type === "Drinks")
-    const filteredRateDrinks = filteredDrinks.map((recipe)=> Number(recipe.rate) )
-     return filteredDrinks.filter((drink) => Number(drink.rate) === Math.max(...filteredRateDrinks))[0]
-   }
-   const bestRecipesPratos =()=>{
-    const filteredPratos =  recipes.filter((recipe)=> recipe.type === "Prato Principal")
-    const filteredRatePratos = filteredPratos.map((recipe)=> Number(recipe.rate) )
-     return filteredPratos.filter((prato) => Number(prato.rate) === Math.max(...filteredRatePratos))[0]
-   }
-   const bestRecipesMassas =()=>{
-    const filteredMassas =  recipes.filter((recipe)=> recipe.type === "Massas")
-    const filteredRateMassas = filteredMassas.map((recipe)=> Number(recipe.rate) )
-     return filteredMassas.filter((massa) => Number(massa.rate) === Math.max(...filteredRateMassas))[0]
-   }
-  const arrBestRecipes = [bestRecipesSobremesa(),bestRecipesDrinks(),bestRecipesPratos(),bestRecipesMassas()] 
+  const bestRecipesDrinks = () => {
+    const filteredDrinks = recipes.filter((recipe) => recipe.type === "Drinks")
+    const filteredRateDrinks = filteredDrinks.map((recipe) => Number(recipe.rate))
+    return filteredDrinks.filter((drink) => Number(drink.rate) === Math.max(...filteredRateDrinks))[0]
+  }
+  const bestRecipesPratos = () => {
+    const filteredPratos = recipes.filter((recipe) => recipe.type === "Prato Principal")
+    const filteredRatePratos = filteredPratos.map((recipe) => Number(recipe.rate))
+    return filteredPratos.filter((prato) => Number(prato.rate) === Math.max(...filteredRatePratos))[0]
+  }
+  const bestRecipesMassas = () => {
+    const filteredMassas = recipes.filter((recipe) => recipe.type === "Massas")
+    const filteredRateMassas = filteredMassas.map((recipe) => Number(recipe.rate))
+    return filteredMassas.filter((massa) => Number(massa.rate) === Math.max(...filteredRateMassas))[0]
+  }
+  const arrBestRecipes = [bestRecipesSobremesa(), bestRecipesDrinks(), bestRecipesPratos(), bestRecipesMassas()]
   return recipes.length === 0 ? (
     <Loading />
   ) : (
@@ -57,7 +57,7 @@ export const Destaques = () => {
               justifyContent: "center",
             }}
           >
-            {arrBestRecipes.map((recipe,index) => (
+            {arrBestRecipes.map((recipe, index) => (
               <div key={index} id="container">
                 <div>
                   <Link
