@@ -18,9 +18,14 @@ Projeto sempre em crescimento com a colaboração dos usuários.
 1- Search: Acesso pela barra de Navegação ou pelo Carrousel.<br>
 <img src="./ToReadMe/Video_221013203339.gif" width=750 height=420><br>
 2- About: Acesso pela barra de Navegação ou pelo Carrousel.<br>
+<img src="./ToReadMe/about.gif" width=750 height=420><br>
 3- New-Recipe: Acesso pelo Carrousel.<br>
+<img src="./ToReadMe/newRecipe.gif" width=750 height=420><br>
 4- Destaque: Na Home estão selecionados 4 pratos de categorias diferentes de acordo com o rating feito pelos usuários.<br>
-5- Recipes: Cada receita possui um campo para os usuários fazerem o comentario e avaliar a receita.
+<img src="./ToReadMe/destaques.gif" width=750 height=420><br>
+5- Recipes: Cada receita possui um campo para os usuários fazerem o comentario e avaliar a receita.<br>
+<img src="./ToReadMe/comentarios.gif" width=750 height=420><br>
+
 
 ## Tecnologias Utilizadas
 

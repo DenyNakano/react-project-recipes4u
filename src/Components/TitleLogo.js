@@ -11,5 +11,5 @@ export const TitleLogo = () => {
       );
     }, 1000);
   }, [word, words]);
-  return <div>RECIPE 4 {word}</div>;
+  return <div>RECIPES 4 {word}</div>;
 };
