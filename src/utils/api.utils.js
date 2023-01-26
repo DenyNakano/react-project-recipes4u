@@ -13,5 +13,13 @@ class Api {
             throw error
         }
     }
+    getRecipe = async (idRecipe) => {
+        try {
+            const { data } = await this.api.get(`/recipe/${idRecipe}`)
+            return data
+        } catch (error) {
+            throw error
+        }
+    }
 }
 export default new Api()
