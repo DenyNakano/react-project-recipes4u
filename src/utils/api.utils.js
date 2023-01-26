@@ -21,5 +21,12 @@ class Api {
             throw error
         }
     }
+    postComment = async (idRecipe,comment) => {
+        try {
+            await this.api.post(`/comment/${idRecipe}`,comment)
+        } catch (error) {
+            throw error
+        }
+    }
 }
 export default new Api()
