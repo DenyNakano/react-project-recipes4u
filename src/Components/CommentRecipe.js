@@ -45,9 +45,9 @@ export const CommentRecipe = ({ filteredComments }) => {
                 <CgProfile size={50} />
                 <div>
                   <div>
-                    <b>{filteredComment.author}</b>
+                    <b>{filteredComment.user}</b>
                   </div>
-                  <div>{timeFormat(new Date(filteredComment.created_at))} </div>
+                  <div>{timeFormat(new Date(filteredComment.createdAt))} </div>
                 </div>
               </div>
               <p>
@@ -62,7 +62,6 @@ export const CommentRecipe = ({ filteredComments }) => {
               </p>
             </div>
             <p>{filteredComment.comment}</p>
-            {/*<p>{timeHour(new Date(filteredComment.created_at))}</p>*/}
           </div>
         ))}
       </div>
