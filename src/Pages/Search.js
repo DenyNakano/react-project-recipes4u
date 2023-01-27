@@ -1,55 +1,39 @@
 import { BarSearch } from "../Components/BarSearch";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Loading } from "../Components/Loading";
 import { Link } from "react-router-dom";
 import { MdTimer } from "react-icons/md";
+import Api from "../utils/api.utils";
 
 export const Search = () => {
-  const [recipes, setRecipes] = useState([]);
-  const [filteredResults, setFilteredResults] = useState([]);
+  const[results, setResults] = useState(null);
   const [searchInput, setSearchInput] = useState("");
   const inputValue = (element) => {
     setSearchInput(element.target.value);
   };
-  const searchItems = () => {
-    if (searchInput !== "") {
-      const filteredData = recipes.filter((recipe) =>
-        
-        recipe.name.toLowerCase().includes(searchInput.toLowerCase())
-        
-      );
-      setFilteredResults(filteredData);
-    } else {
-      setFilteredResults(recipes);
-    }
-  };
-  useEffect(() => {
-    getSearch();
-  }, []);
-  const getSearch = async () => {
+  const getSearch = async (search) => {
     try {
-      const { data } = await axios.get(
-        `https://ironrest.herokuapp.com/recipes4u`
-      );
-      setRecipes(data);
-      setFilteredResults(data);
+      const results = await Api.getSearchRecipe(search)
+      setResults(results);
     } catch (error) {
       console.log(error);
     }
   };
-  return recipes.length === 0 ? (
-    <Loading />
-  ) : (
+
+  useEffect(() => {
+    getSearch(searchInput);
+  }, [searchInput]);
+  
+  return results ? (
     <div style={{ paddingLeft: 100, paddingTop: 10 }}>
       <div>
         <BarSearch
-          searchItems={searchItems}
+          getSearch={getSearch}
           search={searchInput}
           inputValue={inputValue}
         />
         <div style={{ display: "flex", flexWrap: "wrap"}}>
-          {filteredResults.map((recipe) => (
+          {results.map((recipe) => (
             <div key={recipe._id} id="container">
               <div>
                 <Link
@@ -70,9 +54,9 @@ export const Search = () => {
                 >
                   <div>
                     <p>
-                      <b>{recipe.name}</b>
+                      <b>{recipe.title}</b>
                     </p>
-                    <p>{recipe.type}</p>
+                    <p>{recipe.category}</p>
                     <p>
                       {" "}
                       <MdTimer /> {recipe.time}
@@ -94,5 +78,7 @@ export const Search = () => {
         </div>
       </div>
     </div>
+  ) : (
+    <Loading />
   );
 };

@@ -8,7 +8,7 @@ import {
 } from "reactstrap";
 import { FaSearch } from "react-icons/fa";
 
-export const BarSearch = ({ searchItems, search, inputValue }) => {
+export const BarSearch = ({ getSearch, search, inputValue }) => {
   return (
     <div>
       <Card style={{ margin: "20px 0" }}>
@@ -20,7 +20,7 @@ export const BarSearch = ({ searchItems, search, inputValue }) => {
               placeholder="Search for recipe"
             />
             <InputGroupText>
-              <Button color="second" onClick={() => searchItems()}>
+              <Button color="second" onClick={getSearch}>
                 <FaSearch />
               </Button>
             </InputGroupText>

@@ -21,9 +21,17 @@ class Api {
             throw error
         }
     }
-    postComment = async (idRecipe,comment) => {
+    getSearchRecipe = async (search) => {
         try {
-            await this.api.post(`/comment/${idRecipe}`,comment)
+            const { data } = await this.api.get(`/recipe/search?recipe=${search}`)
+            return data
+        } catch (error) {
+            throw error
+        }
+    }
+    postComment = async (idRecipe, comment) => {
+        try {
+            await this.api.post(`/comment/${idRecipe}`, comment)
         } catch (error) {
             throw error
         }
