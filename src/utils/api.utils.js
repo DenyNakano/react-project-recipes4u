@@ -2,7 +2,7 @@ import axios from 'axios'
 class Api {
     constructor() {
         this.api = axios.create({
-            baseURL: 'http://localhost:5055/'
+            baseURL: 'https://server-recipes.cyclic.app/'
         })
     }
     bestRecipes = async () => {
