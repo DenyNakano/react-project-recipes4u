@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Button, Col, Form, FormGroup, Input, Label, Row } from "reactstrap";
 import { FaRegImage } from "react-icons/fa";
 import { MdTimer } from "react-icons/md";
+import Api from "../utils/api.utils";
+
 export const NewRecipe = () => {
   const [Autor, setAutor] = useState("");
   const [Receita, setReceita] = useState("");
@@ -19,18 +20,18 @@ export const NewRecipe = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let NewRecipe = {
-      type: Categoria,
-      name: Receita,
+      category: Categoria.toLowerCase(),
+      title: Receita,
       description: Descrição.trim(),
-      ingredients: Ingredientes.split(";").map((step)=>step.trim()),
-      preparation: Preparo.split(";").map((step)=>step.trim()),
+      ingredients: Ingredientes.split(";").map((step) => step.trim()),
+      preparation: Preparo.split(";").map((step) => step.trim()),
       time: Tempo,
       level: Dificuldade,
       rate: 0,
       image: Imagem,
     };
     try {
-      await axios.post("https://ironrest.herokuapp.com/recipes4u", NewRecipe);
+      await Api.postRecipe(NewRecipe);
       setCategoria("Prato Principal");
       setReceita("");
       setDescrição("");
@@ -45,7 +46,7 @@ export const NewRecipe = () => {
     }
   };
   return (
-    <div style={{ display: "flex", justifyContent: "center" ,/*backgroundColor:"#d9d9db"*/}}>
+    <div style={{ display: "flex", justifyContent: "center",/*backgroundColor:"#d9d9db"*/ }}>
       <div
         style={{
           display: "flex",

@@ -36,5 +36,12 @@ class Api {
             throw error
         }
     }
+    postRecipe = async (newRecipe) => {
+        try {
+            await this.api.post('/recipe', newRecipe)
+        } catch (error) {
+            throw error
+        }
+    }
 }
 export default new Api()
